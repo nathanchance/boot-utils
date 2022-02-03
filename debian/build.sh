@@ -108,7 +108,7 @@ function reality_checks() {
     is_available debootstrap
     is_available findmnt
     is_available mkfs.ext4
-    is_available qemu-img
+    # is_available qemu-img
 
     # Default values
     [[ -z ${DEB_VERSION} ]] && DEB_VERSION=bullseye
@@ -126,7 +126,7 @@ function create_img() {
 
     # Create the image that we will use and mount it
     IMG=${WORK_DIR}/debian.img
-    qemu-img create "${IMG}" 5g
+    cp -v /home/"${ORIG_USER}"/tmp/debian.img "${IMG}"
     mkfs.ext4 "${IMG}"
     MOUNT_DIR=${WORK_DIR}/rootfs
     mkdir -p "${MOUNT_DIR}"
