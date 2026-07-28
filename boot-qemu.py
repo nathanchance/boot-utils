@@ -592,6 +592,7 @@ class PowerPC32MacQEMURunner(PowerPC32QEMURunner):
 
         self._default_kernel_path = Path('vmlinux')
         self._machine: str = 'mac99'
+        self._qemu_args.append('-nographic')
 
 
 class PowerPC64QEMURunner(QEMURunner):
